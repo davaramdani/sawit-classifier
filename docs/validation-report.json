@@ -1,0 +1,39 @@
+{
+  "modelSHA256": "2857303ebb058c8e22abdf71b3b46479e448ef8ca12553ab551f509a451db2eb",
+  "runtime": "onnxruntime-web 1.23.2 WASM (Node.js)",
+  "note": "Conversion parity on local fixtures, not a test-set accuracy measurement. Browser timings depend on the device.",
+  "results": [
+    {
+      "fixture": "fixture-1",
+      "prediction": "Belum Masak",
+      "maxLogitError": 0.000001430511474609375,
+      "inferenceMs": 404,
+      "pillowPixelsExact": true,
+      "normalizedTensorExact": true
+    },
+    {
+      "fixture": "fixture-2",
+      "prediction": "Masak",
+      "maxLogitError": 9.5367431640625e-7,
+      "inferenceMs": 448,
+      "pillowPixelsExact": true,
+      "normalizedTensorExact": true
+    },
+    {
+      "fixture": "fixture-3",
+      "prediction": "Masak",
+      "maxLogitError": 0.0000011920928955078125,
+      "inferenceMs": 514,
+      "pillowPixelsExact": true,
+      "normalizedTensorExact": true
+    },
+    {
+      "fixture": "fixture-4",
+      "prediction": "Belum Masak",
+      "maxLogitError": 0.000001430511474609375,
+      "inferenceMs": 427,
+      "pillowPixelsExact": true,
+      "normalizedTensorExact": true
+    }
+  ]
+}

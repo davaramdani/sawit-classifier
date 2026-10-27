@@ -1,0 +1,30 @@
+{
+  "schema": 1,
+  "file": "sawit-resnet50-2857303ebb05.onnx",
+  "sha256": "2857303ebb058c8e22abdf71b3b46479e448ef8ca12553ab551f509a451db2eb",
+  "bytes": 96043336,
+  "classes": [
+    "Belum Masak",
+    "Masak",
+    "Terlalu Masak"
+  ],
+  "inputShape": [
+    1,
+    3,
+    224,
+    224
+  ],
+  "mean": [
+    0.485,
+    0.456,
+    0.406
+  ],
+  "std": [
+    0.229,
+    0.224,
+    0.225
+  ],
+  "resize": "Pillow-compatible bilinear with antialiasing",
+  "runtimeVersion": "1.23.2",
+  "opset": 13
+}

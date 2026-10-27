@@ -1,0 +1,8 @@
+{
+  "name": "sawit-classifier",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "validate:model": "node scripts/validate_model.mjs"
+  }
+}

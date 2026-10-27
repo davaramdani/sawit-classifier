@@ -1,0 +1,9 @@
+# Optional: export/validation tooling, tested with Python 3.10.
+# CPU packages can be installed from https://download.pytorch.org/whl/cpu
+torch==1.12.1
+torchvision==0.13.1
+numpy==1.26.4
+Pillow==9.4.0
+onnx==1.15.0
+onnxruntime==1.16.3
+protobuf==4.25.8

@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="id">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="#f8f7f2" name="theme-color"/>
+  <meta content="Periksa perkiraan kematangan buah kelapa sawit melalui foto atau kamera." name="description"/>
+  <title>
+   Sawit — Pembacaan Kematangan Buah
+  </title>
+  <link href="{{ url_for('static', filename='css/style.css') }}?v=2" rel="stylesheet"/>
+  <script defer="" src="{{ url_for('static', filename='js/app.js') }}?v=2">
+  </script>
+ </head>
+ <body>
+  <svg aria-hidden="true" class="icon-library" xmlns="http://www.w3.org/2000/svg">
+   <symbol id="icon-upload" viewBox="0 0 24 24">
+    <path d="M12 16V3m-5 5 5-5 5 5M4 15v5a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-5">
+    </path>
+   </symbol>
+   <symbol id="icon-camera" viewBox="0 0 24 24">
+    <path d="m8 5 1.5-2h5L16 5h4a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z">
+    </path>
+    <circle cx="12" cy="12" r="4">
+    </circle>
+   </symbol>
+   <symbol id="icon-arrow" viewBox="0 0 24 24">
+    <path d="M4 12h15m-6-6 6 6-6 6">
+    </path>
+   </symbol>
+   <symbol id="icon-scan" viewBox="0 0 48 48">
+    <path d="M5 15V5h10m18 0h10v10M5 33v10h10m18 0h10V33M14 24h20">
+    </path>
+    <path d="M24 12c-7 7-10 12-10 16a10 10 0 0 0 20 0c0-4-3-9-10-16Z">
+    </path>
+   </symbol>
+  </svg>
+  <div class="page-shell">
+   <header class="site-header">
+    <a aria-label="Sawit, halaman utama" class="brand" href="/">sawit<span>.</span></a>
+    <span class="brand-caption">
+     Catatan kematangan buah
+    </span>
+    <nav aria-label="Navigasi utama">
+     <a class="nav-link current" href="#analisis">
+      Analisis
+     </a>
+     <a class="nav-link" href="#panduan">
+      Panduan foto
+      <span aria-hidden="true">
+       ↗
+      </span>
+     </a>
+    </nav>
+   </header>
+   <main>
+    <section aria-labelledby="pageTitle" class="intro">
+     <div>
+      <p class="eyebrow">
+       <span class="small-rule">
+       </span>
+       PENGAMATAN VISUAL
+      </p>
+      <h1 id="pageTitle">
+       Periksa kematangan
+       <br/>
+       buah
+       <em>
+        sawit.
+       </em>
+      </h1>
+      <p class="intro-description">
+       Satu foto untuk mengenali tingkat kematangan.
+       <br class="desktop-break"/>
+       Unggah dari perangkat atau ambil langsung dengan kamera.
+      </p>
+     </div>
+     <aside aria-label="Kelas kematangan" class="class-key">
+      <p class="eyebrow">
+       TIGA TINGKAT KEMATANGAN
+      </p>
+      <div>
+       <span class="class-dot unripe">
+       </span>
+       Belum masak
+      </div>
+      <div>
+       <span class="class-dot ripe">
+       </span>
+       Masak
+      </div>
+      <div>
+       <span class="class-dot overripe">
+       </span>
+       Terlalu masak
+      </div>
+     </aside>
+    </section>
+    <section aria-label="Analisis kematangan sawit" class="workspace" id="analisis">
+     <div class="input-panel">
+      <div class="panel-heading">
+       <h2>
+        <span class="section-number">
+         01
+        </span>
+        Foto buah
+       </h2>
+       <span class="panel-caption">
+        Mulai di sini
+       </span>
+      </div>
+      <div aria-label="Sumber foto" class="source-tabs" role="tablist">
+       <button aria-controls="uploadPanel" aria-selected="true" class="source-tab active" id="uploadTab" role="tab" type="button">
+        <svg aria-hidden="true" class="icon">
+         <use href="#icon-upload">
+         </use>
+        </svg>
+        Unggah foto
+       </button>
+       <button aria-controls="cameraPanel" aria-selected="false" class="source-tab" id="cameraTab" role="tab" tabindex="-1" type="button">
+        <svg aria-hidden="true" class="icon">
+         <use href="#icon-camera">
+         </use>
+        </svg>
+        Gunakan kamera
+       </button>
+      </div>
+      <div aria-labelledby="uploadTab" id="uploadPanel" role="tabpanel">
+       <input accept="image/jpeg,image/png,image/webp" aria-label="Pilih foto sawit" hidden="" id="fileInput" type="file"/>
+       <button aria-label="Pilih atau ganti foto sawit" class="drop-zone" id="uploadBox" type="button">
+        <span class="upload-prompt" id="uploadPrompt">
+         <span class="upload-symbol">
+          <svg aria-hidden="true" class="icon">
+           <use href="#icon-upload">
+           </use>
+          </svg>
+         </span>
+         <strong>
+          Letakkan foto sawit di sini
+         </strong>
+         <span class="drop-description">
+          Seret foto ke area ini, atau pilih dari perangkat.
+         </span>
+         <span class="choose-file">
+          Pilih foto
+          <span aria-hidden="true">
+           ↗
+          </span>
+         </span>
+         <span class="file-formats">
+          JPG, PNG, WEBP · Maks. 10 MB
+         </span>
+        </span>
+        <img alt="Pratinjau foto sawit yang dipilih" hidden="" id="previewImg"/>
+        <span class="change-overlay" hidden="" id="changeOverlay">
+         Ganti foto
+         <span aria-hidden="true">
+          ↗
+         </span>
+        </span>
+       </button>
+      </div>
+      <div aria-labelledby="cameraTab" hidden="" id="cameraPanel" role="tabpanel">
+       <div class="camera-view">
+        <div class="camera-prompt" id="cameraPrompt">
+         <svg aria-hidden="true" class="icon">
+          <use href="#icon-camera">
+          </use>
+         </svg>
+         <strong>
+          Ambil foto langsung
+         </strong>
+         <p>
+          Arahkan kamera ke buah sawit
+          <br/>
+          dan pastikan gambar terlihat jelas.
+         </p>
+         <button class="button button-outline" id="startCameraBtn" type="button">
+          Buka kamera
+         </button>
+        </div>
+        <video autoplay="" hidden="" id="video" muted="" playsinline="">
+        </video>
+        <canvas hidden="" id="canvas">
+        </canvas>
+        <img alt="Foto sawit dari kamera" hidden="" id="capturedImg"/>
+        <button aria-label="Ambil foto" class="capture-button" disabled="" hidden="" id="captureBtn" type="button">
+         <span>
+         </span>
+        </button>
+        <button class="retake-button" hidden="" id="retakeBtn" type="button">
+         Ambil ulang ↗
+        </button>
+       </div>
+      </div>
+      <div class="file-meta">
+       <span id="fileName">
+        Belum ada foto dipilih
+       </span>
+       <button class="text-button" hidden="" id="clearPhotoBtn" type="button">
+        Hapus foto
+       </button>
+      </div>
+      <p class="error-message" hidden="" id="errorMessage" role="alert">
+      </p>
+      <button class="button button-primary" disabled="" id="analyzeBtn" type="button">
+       <span id="analyzeText">
+        Analisis foto
+       </span>
+       <svg aria-hidden="true" class="icon">
+        <use href="#icon-arrow">
+        </use>
+       </svg>
+       <span class="spinner" hidden="">
+       </span>
+      </button>
+      <button class="sample-photo" data-src="{{ url_for('static', filename='uploads/sawit5.jpg') }}" id="sampleBtn" type="button">
+       <img alt="" height="48" src="{{ url_for('static', filename='uploads/sawit5.jpg') }}" width="48"/>
+       <span>
+        <strong>
+         Belum punya foto?
+        </strong>
+        <span>
+         Coba dengan foto contoh
+        </span>
+       </span>
+       <span aria-hidden="true" class="sample-arrow">
+        ↗
+       </span>
+      </button>
+     </div>
+     <div aria-busy="false" class="output-panel" id="resultPanel">
+      <div class="panel-heading">
+       <h2>
+        <span class="section-number">
+         02
+        </span>
+        Hasil analisis
+       </h2>
+       <span class="result-status" id="resultStatus">
+        Menunggu foto
+       </span>
+      </div>
+      <div class="result-empty" id="resultEmpty">
+       <svg aria-hidden="true" class="scan-symbol">
+        <use href="#icon-scan">
+        </use>
+       </svg>
+       <h3>
+        Belum ada pembacaan.
+       </h3>
+       <p>
+        Pilih foto, lalu tekan
+        <strong>
+         Analisis foto.
+        </strong>
+        <br/>
+        Perkiraan kematangan akan muncul di sini.
+       </p>
+      </div>
+      <div aria-live="polite" class="result-content" hidden="" id="resultContent">
+       <p class="eyebrow">
+        PERKIRAAN KEMATANGAN
+       </p>
+       <h3 id="predictionLabel">
+       </h3>
+       <div class="confidence-line">
+        <span>
+         Probabilitas kelas terpilih
+        </span>
+        <strong id="confidenceValue">
+        </strong>
+       </div>
+      </div>
+      <div aria-label="Distribusi probabilitas" class="probabilities">
+       <p class="distribution-title">
+        DISTRIBUSI PER KELAS
+       </p>
+       <div class="prob-item" data-class="Belum Masak">
+        <div class="prob-label">
+         <span>
+          <i class="class-dot unripe">
+          </i>
+          Belum masak
+         </span>
+         <span class="prob-value">
+          —
+         </span>
+        </div>
+        <div class="prob-track">
+         <div class="prob-fill unripe" style="width:0%">
+         </div>
+        </div>
+       </div>
+       <div class="prob-item" data-class="Masak">
+        <div class="prob-label">
+         <span>
+          <i class="class-dot ripe">
+          </i>
+          Masak
+         </span>
+         <span class="prob-value">
+          —
+         </span>
+        </div>
+        <div class="prob-track">
+         <div class="prob-fill ripe" style="width:0%">
+         </div>
+        </div>
+       </div>
+       <div class="prob-item" data-class="Terlalu Masak">
+        <div class="prob-label">
+         <span>
+          <i class="class-dot overripe">
+          </i>
+          Terlalu masak
+         </span>
+         <span class="prob-value">
+          —
+         </span>
+        </div>
+        <div class="prob-track">
+         <div class="prob-fill overripe" style="width:0%">
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="result-footnote">
+       <span aria-hidden="true" class="note-mark">
+        i
+       </span>
+       <p>
+        Hasil merupakan perkiraan dari foto. Kondisi cahaya dan sudut pengambilan dapat memengaruhi prediksi.
+       </p>
+      </div>
+      <button class="text-button clear-result" hidden="" id="clearResultBtn" type="button">
+       Bersihkan hasil
+       <span aria-hidden="true">
+        ↗
+       </span>
+      </button>
+      <span class="sr-only" id="liveStatus" role="status">
+      </span>
+     </div>
+    </section>
+    <section aria-labelledby="guideTitle" class="photo-guide" id="panduan">
+     <div class="guide-intro">
+      <p class="eyebrow">
+       SEBELUM MEMOTRET
+      </p>
+      <h2 id="guideTitle">
+       Foto yang tepat,
+       <br/>
+       pembacaan lebih baik.
+      </h2>
+     </div>
+     <div class="guide-item">
+      <span class="guide-number">
+       01 /
+      </span>
+      <h3>
+       Dekatkan ke buah
+      </h3>
+      <p>
+       Isi sebagian besar bingkai dengan buah sawit, bukan latar di sekitarnya.
+      </p>
+     </div>
+     <div class="guide-item">
+      <span class="guide-number">
+       02 /
+      </span>
+      <h3>
+       Gunakan cahaya alami
+      </h3>
+      <p>
+       Hindari bayangan pekat dan filter yang mengubah warna asli buah.
+      </p>
+     </div>
+     <div class="guide-item">
+      <span class="guide-number">
+       03 /
+      </span>
+      <h3>
+       Jaga foto tetap tajam
+      </h3>
+      <p>
+       Pastikan warna dan permukaan buah terlihat jelas sebelum dianalisis.
+      </p>
+     </div>
+    </section>
+   </main>
+   <footer class="site-footer">
+    <span>
+     sawit<span class="footer-dot">.</span>
+     <span class="footer-description">
+      Sebuah studi kematangan buah.
+     </span>
+    </span>
+    <span>
+     Klasifikasi visual · 3 kelas
+    </span>
+   </footer>
+  </div>
+ </body>
+</html>

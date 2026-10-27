@@ -1,0 +1,12 @@
+# Local dependencies and preview artifacts
+.runtime/
+.venv/
+__pycache__/
+*.py[cod]
+.env
+node_modules/
+# The deployable ONNX model is tracked; keep the duplicate training checkpoint local.
+*.pth
+# Keep local camera/upload history out of the public repository.
+static/uploads/*
+!static/uploads/sawit5.jpg
